@@ -1,6 +1,8 @@
 package com.example.smd_project;
 
-public class Wallet {
+import java.io.Serializable;
+
+public class Wallet implements Serializable {
     private String Amount;
 
     public String getAmount() {

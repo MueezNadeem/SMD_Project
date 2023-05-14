@@ -1,6 +1,8 @@
 package com.example.smd_project;
 
-public class Rating {
+import java.io.Serializable;
+
+public class Rating implements Serializable {
     public  Rating(){
         comment="" ;
         RatingValue=0;

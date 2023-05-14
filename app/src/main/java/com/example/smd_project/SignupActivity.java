@@ -28,58 +28,7 @@ public class SignupActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
-
-        progressDialog = new ProgressDialog(this);
-        Button signupButton = (Button) findViewById(R.id.signup_btn);
-        EditText name_text=(EditText) findViewById(R.id.signup_name);
-        EditText email_text=(EditText) findViewById(R.id.signup_email);
-        EditText password_text=(EditText) findViewById(R.id.signup_password);
-        EditText confirm_password_text=(EditText) findViewById(R.id.signup_confirm_password);
-
-        Intent login_intent=new Intent(SignupActivity.this, LoginActivity.class);
-
-
-        signupButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                name=name_text.getText().toString();
-                email=email_text.getText().toString();
-                password=password_text.getText().toString();
-                confirm_password=confirm_password_text.getText().toString();
-
-
-
-                if (password.equals(confirm_password))
-                {
-                    progressDialog.setMessage("Signing up...");
-                    progressDialog.show();
-                    auth.createUserWithEmailAndPassword(email, password)
-                            .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                                @Override
-                                public void onSuccess(AuthResult authResult) {
-                                    progressDialog.cancel();
-                                    startActivity(login_intent);
-                                }
-                            })
-                            .addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Toast.makeText(SignupActivity.this,e.getMessage(),Toast.LENGTH_SHORT).show();
-                                    progressDialog.cancel();
-                                }
-                            });
-                }
-                else
-                {
-                    Toast.makeText(SignupActivity.this,"Incorrect Password Confirmation",Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
-
+        setContentView(R.layout.activity_register);
 
 
 

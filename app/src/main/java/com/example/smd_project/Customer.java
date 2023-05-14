@@ -1,19 +1,22 @@
 package com.example.smd_project;
 
-public class Customer {
+import java.io.Serializable;
+
+public class Customer implements Serializable {
     private int CustomerID;
-    private Account CustAccount;
+    private  String Password;
     private String Name;
     private String PhoneNumber;
     private String DOB;
     private String Email;
     private Wallet cust_wallet;
-
-    public Customer(String name, String phoneNumber, String dob, String email) {
+    public Customer(){}
+    public Customer(String name, String phoneNumber, String dob, String email,String pass) {
         Name = name;
         PhoneNumber = phoneNumber;
         DOB = dob;
         Email = email;
+        Password=pass;
     }
 
 
@@ -65,11 +68,12 @@ public class Customer {
         this.cust_wallet = cust_wallet;
     }
 
-    public Account getCustAccount() {
-        return CustAccount;
+
+    public String getPassword() {
+        return Password;
     }
 
-    public void setCustAccount(Account custAccount) {
-        CustAccount = custAccount;
+    public void setPassword(String password) {
+        Password = password;
     }
 }
